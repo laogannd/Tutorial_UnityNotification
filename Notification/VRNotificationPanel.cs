@@ -10,6 +10,7 @@ public class VRNotificationPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _notificationText;
     [SerializeField] private CanvasGroup _canvasGroup;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private bool _facePlayer = true;
 
     private Coroutine _currentCoroutine;
     private Coroutine _audioCoroutine;
@@ -23,7 +24,7 @@ public class VRNotificationPanel : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (_mainCamera == null) return;
+        if (!_facePlayer || _mainCamera == null) return;
         transform.LookAt(transform.position + _mainCamera.transform.rotation * Vector3.forward,
             _mainCamera.transform.rotation * Vector3.up);
     }

@@ -46,6 +46,14 @@ public class NotificationEventInvoker : MonoBehaviour
         InvokeAll();
     }
 
+    private void Reset()
+    {
+        _data.Audio.Volume = 1f;
+        _data.Audio.Pitch = 1f;
+        _data.Audio.MinDistance = 5f;
+        _data.Audio.MaxDistance = 50f;
+    }
+
     private void InvokeAll()
     {
         for (int i = 0; i < _events.Count; i++)
